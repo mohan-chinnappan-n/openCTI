@@ -3,7 +3,7 @@
 
 ## Open CTI and How to Build Softphone
 
-This document is for the Computer Telephony Providers planning use Open CTI to integrate with Salesforce
+This document is for the Computer Telephony Providers planning to use Open CTI to integrate with Salesforce
 
 ### Demo: Let us setup the call center and softphone
 
