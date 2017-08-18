@@ -58,6 +58,18 @@ Open CTI matches the API version for any given release. For example, if the curr
 
 
 
+### Open CTI Capabilities  :
+
+- Set the height or width of a softphone
+- Enable or disable **click-to-dial**
+- Return a call center definition file’s settings
+- Determine if a user is in the Salesforce console
+- Show or hide a softphone in the Salesforce console
+- Return information about a page
+- Execute an Apex method from an Apex class that’s exposed in Salesforce
+- Save or update an object in Salesforce
+- Search keywords in Salesforce and screen pop any matching records as defined in a softphone layout
+
 
 #### UI
 
@@ -296,10 +308,75 @@ Methods:
 ```
 
 
+### How to connect to Open CTI
+
+Any JavaScript code that uses the Open CTI must make the toolkit available to the JavaScript code.  Here is how:
+
+#### Classic (For Visualforce Pages)
+
+```xml
+<apex:page>
+          <script src="/support/api/40.0/interaction.js" type="text/javascript"></script>
+     
+</apex:page>
+```
+
+#### LX (For Visualforce Pages)
+```xml
+
+<apex:page>
+    <script src="/support/api/40.0/lightning/opencti_min.js" type="text/javascript"></script>
+     
+</apex:page>
+```
+
+
+
+### Open CTI and Security
+
+We recommend that all Open CTI implementations use HTTPS in the reqAdapterUrl element in their call center definition file. Using HTTPS ensures that traffic between your telephony server and Salesforce is encrypted.
+
+By using HTTPS, Open CTI inherits all the benefits of browser and cloud-based security because it points directly to the **softphone provider using a secure connection**.
+
+When users access the softphone on any Salesforce page, it’s displayed in an **iFrame** and all messages from the softphone to Salesforce are sent via **Window.postMessage()** methods. For each message sent, the target is restricted to Salesforce. For each message received, Salesforce verifies its format and the sender origin.
+
+
+#### Softphone iframe
+
+![softphone-iframe1](./img/sofphone-iframe-1.png)
+
+Viewed softphone iframe
+![softphone-iframe2](./img/softphone-iframe-2.png)
+
+HTML markup showing the iframe
+
+![softphone-iframe3](./img/softphone-iframe-3.png)
+
+#### About window.postMessage() 
+
+The window.postMessage() method safely enables **cross-origin communication**. 
+Normally, scripts on different pages are allowed to access each other if and only if the pages that executed them are at locations with the same protocol(https).
+window.postMessage() provides a controlled mechanism to circumvent this restriction in a way which is secure when properly used.
+
+How it works:
+
+when called, causes a **MessageEvent* to be dispatched at the target window when any pending script that must be executed completes (e.g., remaining event handlers if window.postMessage() is called from an event handler, previously-set pending timeouts, etc.) 
+
+The MessageEvent has the type message, a data property which is set to the value of the first argument provided to window.postMessage(), an origin property corresponding to the origin of the main document in the window calling window.postMessage at the time window.postMessage() was called, and a source property which is the window from which window.postMessage() is called. (Other standard properties of events are present with their expected values.)
+
+
+ 
+
+Ref: [about window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) 
+
+
 #### Open CTI Lightning Demo Adapter
 This CTI demo adapter package lets you test drive Open CTI for Lightning Experience. The package provides a demo softphone that highlights and demonstrates the main features of Open CTI for Lightning Experience without even connecting to a phone system.
 
+[Lightning Open CTI](https://developer.salesforce.com/page/Lightning_Open_CTI)
 [open cti demo adapter](https://github.com/developerforce/open-cti-demo-adapter)
+
+
 
 
 ----
