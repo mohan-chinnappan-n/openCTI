@@ -365,7 +365,195 @@ when called, causes a **MessageEvent* to be dispatched at the target window when
 The MessageEvent has the type message, a data property which is set to the value of the first argument provided to window.postMessage(), an origin property corresponding to the origin of the main document in the window calling window.postMessage at the time window.postMessage() was called, and a source property which is the window from which window.postMessage() is called. (Other standard properties of events are present with their expected values.)
 
 
+#### Demo of window.postMessage()
+
+here
+
+
+
+### Asynchronous Calls with Open CTI
+
+#### Classic
+```javascript
+   //Set softphone height
+   sforce.interaction.cti.setSoftphoneHeight(300, callback);
+```
+
+#### LX
+```javascript
+//Disable clickToDial
+sforce.opencti.disableClickToDial({callback: callback});
+
+```
+
+### Sample HTML Page using Open CTI
+
+#### Classic
+```html
+<html>
+<head>
+      <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain. -->
+      <script src="https://domain:port/support/api/40.0/interaction.js"></script>
+      <script type="text/javascript">
+             // Callback of API method: isInConsole
+             var isInConsoleCallback = function (response) {
+                  // Returns true if method is executed in Salesforce console, false otherwise.
+                  if (response.result) {
+                      alert('Softphone is in Salesforce console.');
+                  } 
+                  else {
+                      alert('Softphone is not in Salesforce console.');
+                  }
+              };
+              // Invokes API method: isInConsole
+              function isInConsole() {
+                       sforce.interaction.isInConsole(isInConsoleCallback);
+              }
+              // Callback of API method: getCallCenterSettings
+              var getCallCenterSettingsCallback = function (response) {
+                     // Result returns call center settings as a JSON string.
+                     if (response.result) {
+                            alert(response.result);
+                     } 
+                     else {
+                            alert('Error retrieving call center settings ' + response.error);
+                     }
+              };
+              // Invokes API method: getCallCenterSettings
+              function getCallCenterSettings() {
+                       sforce.interaction.cti.getCallCenterSettings(getCallCenterSettingsCallback);
+              }
+              // Callback of API method: setSoftphoneHeight
+              var setSoftphoneHeightCallback = function (response) {
+                       // Returns true if SoftPhone height was set successfully, false otherwise.
+                      if (response.result) {
+                          alert('Setting softphone height to 300px was successful.');
+                      } 
+                      else {
+                         alert('Setting softphone height failed.');
+                     }
+               };
+               // Invokes setSoftphoneHeight API method.
+               function setSoftphoneHeight() {
+                       sforce.interaction.cti.setSoftphoneHeight(300, setSoftphoneHeightCallback);
+               }
+               // Callback of API method: getPageInfo
+               var getPageInfoCallback = function (response) {
+                      if (response.result) {
+                             alert(response.result);
+                      } 
+                      else {
+                             alert('Error occured while trying to get page info: ' + response.error);
+                      }
+               }
+               // Invokes API method getPageInfo
+               function getPageInfo() {
+                       sforce.interaction.getPageInfo(getPageInfoCallback);
+               }
+      </script>
+</head>
+<body>
+      <button onclick="isInConsole();">isInConsole</button><br/>
+      <button onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
+      <button onclick="setSoftphoneHeight();">setSoftphoneHeight(300)</button><br/>
+      <button onclick="getPageInfo();">getPageInfo</button>
+</body>
+</html>
+```
  
+#### LX
+```html
+<apex:page >
+  <!-- Begin Default Content -->
+  <h1>Congratulations!</h1>
+  This is your sample page.
+  <!-- End Default Content -->
+<html>
+<head>
+   <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain.
+-->
+   <script src="https://domain:port/support/api/40.0/opencti_min.js"></script>
+   <script type="text/javascript">
+      // Callback of API method: setSoftphonePanelHeight
+      var setSoftphonePanelHeightCallback = function(response) {
+            // Returns true if setSoftphonePanelHeight method is executed successfully, false otherwise
+            if (response.result) {
+               alert('setSoftphonePanelHeight is successfully executed.');
+            } 
+            else {
+               alert('setSoftphonePanelHeight failed.);
+            }
+      };
+      // Invokes API method: setSoftphonePanelHeight
+      function setSoftphonePanelHeight() {
+         sforce.opencti.setSoftphonePanelHeight({
+            heightPX: 500,
+            callback: setSoftphonePanelHeightCallback
+         });
+      }
+      // Callback of API method: setSoftphonePanelWidth
+      var setSoftphonePanelWidthCallback = function(response) {
+            // Returns true if setSoftphonePanelWidth method is executed successfully, false otherwise
+            if (response.result) {
+               alert('setSoftphonePanelWidth is successfully executed.');
+            } 
+            else {
+               alert('setSoftphonePanelWidth failed.');
+            }
+      };
+      // Invokes API method: setSoftphonePanelWidth
+      function setSoftphonePanelWidth() {
+         sforce.opencti.setSoftphonePanelWidth({
+            widthPX: 500,
+            callback: setSoftphonePanelHeightCallback
+         });
+      }
+      // Callback of API method: setSoftphoneItemIcon
+      var setSoftphoneItemIconCallback = function(response) {
+            // Returns true if setSoftphoneItemIcon method is executed successfully, false otherwise
+            if (response.result) {
+               alert('setSoftphoneItemIcon is successfully executed.');
+            } 
+            else {
+               alert('setSoftphoneItemIcon failed.');
+            }
+      };
+      // Invokes API method: setSoftphoneItemIcon
+      function setSoftphoneItemIcon() {
+         sforce.opencti.setSoftphoneItemIcon({
+            key: 'call',
+            callback: setSoftphoneItemIconCallback
+         });
+      }
+      // Callback of API method: setSoftphoneItemLabel
+      var setSoftphoneItemLabelCallback = function(response) {
+            // Returns true if setSoftphoneItemLabel method is executed successfully, false otherwise
+            if (response.result) {
+               alert('setSoftphoneItemLabel is successfully executed.');
+            } 
+            else {
+               alert('setSoftphoneItemLabel failed.');
+            }
+      };
+      // Invokes API method: setSoftphoneItemLabel
+      function setSoftphoneItemLabel() {
+         sforce.opencti.setSoftphoneItemLabel({
+            Label: 'MySoftphone',
+            callback: setSoftphoneItemLabelCallback
+         });
+      }
+   </script>
+</head>
+<body>
+   <button onclick="setSoftphonePanelHeight();">setSoftphonePanelHeight({heightPX:500})</button><br/>
+   <button onclick="setSoftphonePanelWidth();">setSoftphonePanelWidth({widthPX:500})</button><br/>
+   <button onclick="setSoftphoneItemIcon();">setSoftphoneItemIcon({key:'call'})</button><br/>
+   <button onclick="setSoftphoneItemLabel();">setSoftphoneItemLabel({label:'MySoftphone'})</button>
+</body>
+</html>
+</apex:page>
+```
+
 
 Ref: [about window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) 
 
