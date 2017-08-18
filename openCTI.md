@@ -1,7 +1,9 @@
 
 
 
-### Open CTI
+## Open CTI and How to Build Softphone
+
+This document is for the Computer Telephony Providers planning use Open CTI to integrate with Salesforce
 
 ### Demo: Let us setup the call center and softphone
 
@@ -36,6 +38,9 @@ Ref:
 [Open CTI Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_cti.meta/api_cti/sforce_api_cti_intro.htm)
 
 ![](https://developer.salesforce.com/docs/resources/img/en-us/208.0?doc_id=help%2Fimages%2FCTI_arch_overview.png&folder=api_cti)
+
+
+## Open CTI Details
 
 What is Open CTI ?
 
@@ -395,7 +400,7 @@ The MessageEvent has the type message, a data property which is set to the value
 
 #### Demo of window.postMessage()
 
-here
+Coming soon....
 
 
 
@@ -423,12 +428,12 @@ sforce.opencti.disableClickToDial({callback: callback});
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BlueConnect Softphone</title>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -438,88 +443,194 @@ sforce.opencti.disableClickToDial({callback: callback});
 
 
 
-      <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain. -->
-      <script src="https://mohansun-lx1-dev-ed.my.salesforce.com/support/api/40.0/interaction.js"></script>
-      <script type="text/javascript">
-             // Callback of API method: isInConsole
-             var isInConsoleCallback = function (response) {
-                  // Returns true if method is executed in Salesforce console, false otherwise.
-                  console.log('response: ' + response);
-                  if (response.result) {
-                      var msg = 'Softphone is in Salesforce console.'
-                      alert(msg);
-                      console.log(msg);
-                  }
-                  else {
-                      alert('Softphone is not in Salesforce console.');
-                  }
-              };
-              // Invokes API method: isInConsole
-              function isInConsole() {
-                        console.log('in:isInConsole');
-                       sforce.interaction.isInConsole(isInConsoleCallback);
+  <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain. -->
+  <script src="https://mohansun-lx1-dev-ed.my.salesforce.com/support/api/40.0/interaction.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      window.old_alert = window.alert;
+
+      window.alert = function(message, fallback) {
+        if (!fallback) {
+          old_alert(message);
+          return;
+        }
+        $(document.createElement('div'))
+          .attr({
+            title: 'Alert',
+            'class': 'alert'
+          })
+          .html(message)
+          .dialog({
+            buttons: {
+              OK: function() {
+                $(this).dialog('close');
               }
-              // Callback of API method: getCallCenterSettings
-              var getCallCenterSettingsCallback = function (response) {
-                     // Result returns call center settings as a JSON string.
-                     if (response.result) {
-                            alert(response.result);
-                     }
-                     else {
-                            alert('Error retrieving call center settings ' + response.error);
-                     }
-              };
-              // Invokes API method: getCallCenterSettings
-              function getCallCenterSettings() {
-                       sforce.interaction.cti.getCallCenterSettings(getCallCenterSettingsCallback);
-              }
-              // Callback of API method: setSoftphoneHeight
-              var setSoftphoneHeightCallback = function (response) {
-                       // Returns true if SoftPhone height was set successfully, false otherwise.
-                      if (response.result) {
-                          alert('Setting softphone height to 300px was successful.');
-                      }
-                      else {
-                         alert('Setting softphone height failed.');
-                     }
-               };
-               // Invokes setSoftphoneHeight API method.
-               function setSoftphoneHeight() {
-                       sforce.interaction.cti.setSoftphoneHeight(300, setSoftphoneHeightCallback);
-               }
-               // Callback of API method: getPageInfo
-               var getPageInfoCallback = function (response) {
-                      if (response.result) {
-                             alert(response.result);
-                      }
-                      else {
-                             alert('Error occured while trying to get page info: ' + response.error);
-                      }
-               }
-               // Invokes API method getPageInfo
-               function getPageInfo() {
-                       sforce.interaction.getPageInfo(getPageInfoCallback);
-               }
-      </script>
-<style>
-    .box {
-        border-radius: 8px;
-        padding: 10px;
-        box-shadow: 3px 3px 3px #888888;
-        width:200px;
+            },
+            close: function() {
+              $(this).remove();
+            },
+            draggable: true,
+            modal: true,
+            resizable: false,
+            width: 'auto'
+          });
+      };
+
+      //alert('BlueConnect SoftPhone is ready!');
+    });
+
+
+    // Callback of API method: isInConsole
+    var isInConsoleCallback = function(response) {
+      // Returns true if method is executed in Salesforce console, false otherwise.
+      console.log('response: ' + response);
+      if (response.result) {
+        var msg = 'Softphone is in Salesforce console.'
+        alert(msg);
+        console.log(msg);
+      } else {
+        alert('Softphone is not in Salesforce console.');
+      }
+    };
+    // Invokes API method: isInConsole
+    function isInConsole() {
+      console.log('in:isInConsole');
+      sforce.interaction.isInConsole(isInConsoleCallback);
     }
-</style>
+    // Callback of API method: getCallCenterSettings
+    var getCallCenterSettingsCallback = function(response) {
+      // Result returns call center settings as a JSON string.
+      if (response.result) {
+        alert(JSON.stringify(response.result, null, 4));
+      } else {
+        alert('Error retrieving call center settings ' + response.error);
+      }
+    };
+    // Invokes API method: getCallCenterSettings
+    function getCallCenterSettings() {
+      sforce.interaction.cti.getCallCenterSettings(getCallCenterSettingsCallback);
+    }
+    // Callback of API method: setSoftphoneHeight
+    var setSoftphoneHeightCallback = function(response) {
+      // Returns true if SoftPhone height was set successfully, false otherwise.
+      if (response.result) {
+        alert('Setting softphone height to 300px was successful.');
+      } else {
+        alert('Setting softphone height failed.');
+      }
+    };
+    // Invokes setSoftphoneHeight API method.
+    function setSoftphoneHeight() {
+      sforce.interaction.cti.setSoftphoneHeight(300, setSoftphoneHeightCallback);
+    }
+    // Callback of API method: getPageInfo
+    var getPageInfoCallback = function(response) {
+      if (response.result) {
+        alert(response.result);
+      } else {
+        alert('Error occured while trying to get page info: ' + response.error);
+      }
+    }
+    // Invokes API method getPageInfo
+    function getPageInfo() {
+      sforce.interaction.getPageInfo(getPageInfoCallback);
+    }
+
+
+
+    function runApex() {
+      //Invokes API method
+      sforce.interaction.runApex('AccountRetrieval', 'getAccount', 'name=GenePoint', function(response) {
+        if (response.result) {
+          alert(response.result);
+        } else {
+          alert(response.error);
+        }
+      });
+    }
+
+
+    function screenPop(id) {
+      //Invokes API method
+      sforce.interaction.screenPop('/' + id, true, function(response) {
+        if (response.result) {
+          alert('Screen pop was set successfully.');
+        } else {
+          alert('Screen pop failed.' + result.error);
+        }
+      });
+    }
+
+
+
+    function enableClickToDial() {
+      sforce.interaction.cti.enableClickToDial(function(response) {
+        if (response.result) {
+          alert('Click to dial was enabled.');
+        } else {
+          alert('Click to dial was not enabled.');
+        }
+      });
+    }
+
+
+    function onClickToDial() {
+      sforce.interaction.cti.onClickToDial(function(response) {
+        if (response.result) {
+          alert('User clicked on a phone number.' + response.result);
+        }
+      });
+    }
+
+    function searchAndGetScreenPopUrl(term) {
+      //Invokes API method
+      sforce.interaction.searchAndGetScreenPopUrl(term, 'Key1=value1&Key2=value2', 'inbound', function(response) {
+        if (response.result) {
+          alert(response.result);
+        } else {
+          alert(response.error);
+        }
+      });
+    }
+
+  </script>
+  <style>
+    .box {
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 3px 3px 3px #888888;
+      width: 190px;
+    }
+
+    .alert {
+      font-size: 1.3em;
+      padding: 1em;
+      text-align: center;
+      white-space: nowrap;
+      width: auto;
+      word-wrap: normal;
+    }
+  </style>
 
 </head>
+
 <body>
   <div class='container box'>
-      <h5>BlueConnect SoftPhone</h5>
-      <button class='btn btn-primary' onclick="isInConsole();">isInConsole</button><br/>
-      <button class='btn btn-info' onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
-      
-      <button class='btn btn-warning' onclick="setSoftphoneHeight();">setSoftphoneHeight(400)</button><br/>
-      <button class='btn btn-danger' onclick="getPageInfo();">getPageInfo</button>
+    <h5>BlueConnect SoftPhone</h5>
+    <button class='btn btn-primary' onclick="isInConsole();">isInConsole</button><br/>
+    <button class='btn btn-info' onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
+    <button class='btn btn-warning' onclick="setSoftphoneHeight();">setSoftphoneHeight(300)</button><br/>
+    <button class='btn btn-danger' onclick="getPageInfo();">getPageInfo</button>
+    <button class='btn btn-primary' onclick="enableClickToDial();">enableClickToDial</button>
+    <button class='btn btn-primary' onclick="onClickToDial();">onClickToDial</button>
+    <button class='btn btn-primary' onclick="runApex();">runApex</button>
+    <button class='btn btn-primary' onclick="screenPop('001f40000038OyO');">screenPop</button>
+    <button class='btn btn-primary' onclick="searchAndGetScreenPopUrl('United Oil & Gas Corp.')">searchAndGetScreenPopUrl</button>
 </body>
+
 </html>
 
 
