@@ -481,7 +481,7 @@ sforce.opencti.disableClickToDial({callback: callback});
                alert('setSoftphonePanelHeight is successfully executed.');
             } 
             else {
-               alert('setSoftphonePanelHeight failed.);
+               alert('setSoftphonePanelHeight failed.');
             }
       };
       // Invokes API method: setSoftphonePanelHeight
