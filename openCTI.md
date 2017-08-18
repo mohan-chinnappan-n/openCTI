@@ -14,6 +14,15 @@
 
 ![callCenter screen](./img/opencti-softphone-1.png)
 
+#### Running Apex
+
+**Create Apex Class**
+![running-apex-create-calss](./img/run-apex-1.png)
+**Create Generate WSDL**
+![running-apex-generate-WSDL](./img/run-apex-2.png)
+**Run Apex from Softphone**
+![running-apex-run-apex](./img/run-apex-3.png)
+
 
 Ref:
 
