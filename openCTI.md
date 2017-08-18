@@ -1,34 +1,4 @@
-Ref:
 
-[IVR, ACD](http://easyonhold.com/blog/ivr-acd-auto-attendant-voicemail-whats-the-difference/)
-####IVR, ACD, Auto-Attendant, Voicemail. What’s The Difference?
-**IVR – Interactive Voice Response**
-Interactive Voice Response (IVR) is a technology that allows a computer to interact with humans using voice commands or tones from a telephone keypad (DTMF, or Dual Tone Multifrequency, the beeps your phone makes when you dial). Technically, IVR lets the caller enter an “ID” or account code, then provides access to a database. This is where the “interactive” part comes in. Banks and Credit Unions often have “phone bank” systems that allow you to conduct transactions. This is IVR.
-
-
-**ACD — Automatic Call Distribution**
-ACD Systems answer incoming calls and allow the caller to choose a menu, group of extensions or singular extension to which the call is routed. The term is used in large call centers to describe the system of organizing incoming calls into queues of callers waiting to speak with an operator or service person.
-
-**Automated Attendant**
-The term Automated attendant is essentially the same as ACD. The incoming call is answered automatically, then allows callers to choose where the call is routed. Automated Attendant is also called Auto-Attendant, AA or Virtual Receptionist. Typically a simple menu such as, “press 1 to speak with our parts department, press 2 for directions to our store…” is offered. Callers can be routed to an extension, an outside line or a recording. Some Auto Attendant Systems are a part of a business phone system, while many are “add-on” systems (sometimes part of the Voicemail System).
-
-**Voicemail**
-A Voicemail System is designed specifically for recording a message from the caller’s voice (leaving a message for the intended party). Voicemail Systems can be operated by simple devices such as answering machines, remotely operated as with your cell phone voicemail, or added to a business phone system. Examples are Nortel Call Pilot, Star Flash and various systems by Avaya, Cisco, 3com, Mitel and others. Such systems are often “add-ons” to a PBX system As more businesses move into I.P. telephony (hosted PBX solutions), Voicemail is likely part of a Unified Messaging System, which can combine cell phone, email, voicemail and other types of messaging.
-
-**CCR Tree**
-A Custom Call Routing (CCR) Tree refers to the part of a Voicemail, IVR or Automated Attendant system that designates the departments and extensions to which callers are routed. Callers are prompted at each stage in the routing process by a recorded voice. CCR Trees can contain multiple menus and sub-menus to allow callers to obtain more specific information. Often, business callers complain about being “trapped in a call center loop” or “voicemail hell”. This is what happens when a CCR Tree is not well planned. Frequently-used pathways should be considered, as well as the length of voiced prompts. 
-
-  
-***Tips***
-
-If you are considering setting up a voice response or voicemail system for your company, here are a few tips to consider:
-
-Consider the length of each message (callers can be impatient).
-Use consistent language (all department and extension names must be accurate in every menu).
-Take time to write out every word that you want callers to hear. Test it by speaking it aloud.
-Talk to your I.T. or telephony consultant to be sure you understand time/memory limits your system may have.
-Discuss call routing architecture with the equipment provider as well as your tech and marketing teams.
-Consider using professional voice talent with experience in voicemail and IVR recording. Your callers will notice the difference.
 
 
 ### Open CTI
@@ -334,6 +304,48 @@ Methods:
 This CTI demo adapter package lets you test drive Open CTI for Lightning Experience. The package provides a demo softphone that highlights and demonstrates the main features of Open CTI for Lightning Experience without even connecting to a phone system.
 
 [open cti demo adapter](https://github.com/developerforce/open-cti-demo-adapter)
+
+
+----
+
+###IVR, ACD, Auto-Attendant, Voicemail. What’s The Difference?
+
+
+
+
+**IVR – Interactive Voice Response**
+Interactive Voice Response (IVR) is a technology that allows a computer to interact with humans using voice commands or tones from a telephone keypad (DTMF, or Dual Tone Multifrequency, the beeps your phone makes when you dial). Technically, IVR lets the caller enter an “ID” or account code, then provides access to a database. This is where the “interactive” part comes in. Banks and Credit Unions often have “phone bank” systems that allow you to conduct transactions. This is IVR.
+
+
+**ACD — Automatic Call Distribution**
+ACD Systems answer incoming calls and allow the caller to choose a menu, group of extensions or singular extension to which the call is routed. The term is used in large call centers to describe the system of organizing incoming calls into queues of callers waiting to speak with an operator or service person.
+
+**Automated Attendant**
+The term Automated attendant is essentially the same as ACD. The incoming call is answered automatically, then allows callers to choose where the call is routed. Automated Attendant is also called Auto-Attendant, AA or Virtual Receptionist. Typically a simple menu such as, “press 1 to speak with our parts department, press 2 for directions to our store…” is offered. Callers can be routed to an extension, an outside line or a recording. Some Auto Attendant Systems are a part of a business phone system, while many are “add-on” systems (sometimes part of the Voicemail System).
+
+**Voicemail**
+A Voicemail System is designed specifically for recording a message from the caller’s voice (leaving a message for the intended party). Voicemail Systems can be operated by simple devices such as answering machines, remotely operated as with your cell phone voicemail, or added to a business phone system. Examples are Nortel Call Pilot, Star Flash and various systems by Avaya, Cisco, 3com, Mitel and others. Such systems are often “add-ons” to a PBX system As more businesses move into I.P. telephony (hosted PBX solutions), Voicemail is likely part of a Unified Messaging System, which can combine cell phone, email, voicemail and other types of messaging.
+
+**CCR Tree**
+A Custom Call Routing (CCR) Tree refers to the part of a Voicemail, IVR or Automated Attendant system that designates the departments and extensions to which callers are routed. Callers are prompted at each stage in the routing process by a recorded voice. CCR Trees can contain multiple menus and sub-menus to allow callers to obtain more specific information. Often, business callers complain about being “trapped in a call center loop” or “voicemail hell”. This is what happens when a CCR Tree is not well planned. Frequently-used pathways should be considered, as well as the length of voiced prompts. 
+
+  
+***Tips***
+
+If you are considering setting up a voice response or voicemail system for your company, here are a few tips to consider:
+
+Consider the length of each message (callers can be impatient).
+Use consistent language (all department and extension names must be accurate in every menu).
+Take time to write out every word that you want callers to hear. Test it by speaking it aloud.
+Talk to your I.T. or telephony consultant to be sure you understand time/memory limits your system may have.
+Discuss call routing architecture with the equipment provider as well as your tech and marketing teams.
+Consider using professional voice talent with experience in voicemail and IVR recording. Your callers will notice the difference.
+
+
+Ref:
+
+[IVR, ACD](http://easyonhold.com/blog/ivr-acd-auto-attendant-voicemail-whats-the-difference/)
+
 
 
 
