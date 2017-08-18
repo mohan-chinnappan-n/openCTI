@@ -27,6 +27,9 @@
 #### Screen Pop
 ![Screen Pop](./img/opencti-screenPop.gif)
 
+#### Search and Get ScreenPopUrl
+![searchAndGetScreenPopUrl](./img/opencti-screenPop-getUrl.gif)
+
 
 Ref:
 
