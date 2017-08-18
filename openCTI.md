@@ -3,6 +3,13 @@
 
 ### Open CTI
 
+### Demo: Let us setup the call center and softphone
+
+![callCenter setup demo](./img/opencti-call-center-def.gif)
+
+
+### Details
+
 Ref:
 
 [Open CTI Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_cti.meta/api_cti/sforce_api_cti_intro.htm)
@@ -594,9 +601,7 @@ sforce.opencti.disableClickToDial({callback: callback});
 Ref: [about window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) 
 
 
-### Demo: Let us set up the call center and softphone
 
-![callCenter setup demo](./img/opencti-call-center-def.gif)
 
 
 #### Open CTI Lightning Demo Adapter
@@ -610,7 +615,7 @@ This CTI demo adapter package lets you test drive Open CTI for Lightning Experie
 
 ----
 
-###IVR, ACD, Auto-Attendant, Voicemail. What’s The Difference?
+### IVR, ACD, Auto-Attendant, Voicemail. What’s The Difference?
 
 
 
