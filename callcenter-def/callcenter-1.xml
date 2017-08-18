@@ -1,0 +1,59 @@
+<callCenter>
+
+ <!--
+     section:
+     
+        Represents a grouping of related data fields:
+       such as server information or dialing prefixes. 
+       
+     Consists of one or more <item> elements.
+     When a call center is edited in Salesforce, fields are organized by the section to which they are assigned.
+    
+    -->
+
+   <section sortOrder="0" name="reqGeneralInfo" label="General Information">
+   
+     <!--
+     item:
+     single field in a call center definition, such as the IP address of a primary server or the dialing prefix for international calls
+     
+      -->
+    
+      <!--
+             label: The name of the item when viewed in Salesforce
+             
+             name: The internal name of the item as defined in the Salesforce database.
+             if the name starts with 'req' it is a required item
+            
+      -->
+    
+    <item sortOrder="0" name="reqInternalName" label="InternalName">BlueConnectDemoAdapter</item>
+    <item sortOrder="1" name="reqDisplayName" label="Display Name">BlueConnect Demo Call Center Adapter</item>
+    
+     <!--
+            reqAdapterUrl:
+            
+                Represents the location of where the CTI adapter or softphone is hosted.                For example:
+                    http://localhost:11000
+                
+                Relative URLs are allowed for Visualforce pages. For example:
+                : /apex/softphone
+                
+                If you add Force.com Canvas applications to Open CTI, those apps can trump reqAdapterUrl when specified.
+                
+                To implement in a Lightning Experience org, use https in your URL.
+                
+       -->
+            
+    <item sortOrder="2" name="reqAdapterUrl" label="CTI Adapter URL">https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html</item>
+    <item sortOrder="3" name="reqUseApi" label="Use CTI API">true</item>
+    <item sortOrder="4" name="reqSoftphoneHeight" label="Softphone Height">300</item>
+    <item sortOrder="5" name="reqSoftphoneWidth" label="Softphone Width">500</item>
+    <item sortOrder="6" name="reqSalesforceCompatabilityMode" label=" Salesforce Compatibility Mode">Classic</item>
+   </section>
+   <section sortOrder="1" name="reqDialingOptions" label="Dialing Options">
+    <item sortOrder="0" name="reqOutsidePrefix" label="Outside Prefix">9</item>
+    <item sortOrder="1" name="reqLongDistPrefix" label="Long Distance Prefix">1</item>
+    <item sortOrder="2" name="reqInternationalPrefix" label="International Prefix">01</item>
+   </section>
+</callCenter>

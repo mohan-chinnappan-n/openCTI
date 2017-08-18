@@ -1,6 +1,20 @@
 
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Einstein Object Detection API</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+
+
+
       <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain. -->
       <script src="https://mohansun-lx1-dev-ed.my.salesforce.com/support/api/40.0/interaction.js"></script>
       <script type="text/javascript">
@@ -66,9 +80,11 @@
       </script>
 </head>
 <body>
-      <button onclick="isInConsole();">isInConsole</button><br/>
-      <button onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
-      <button onclick="setSoftphoneHeight();">setSoftphoneHeight(300)</button><br/>
-      <button onclick="getPageInfo();">getPageInfo</button>
+  <div class='container'>
+      <h4>Blue Connect SoftPhone</h4>
+      <button class='btn btn-primary' onclick="isInConsole();">isInConsole</button><br/>
+      <button class='btn btn-info' onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
+      <button class='btn btn-warning' onclick="setSoftphoneHeight();">setSoftphoneHeight(300)</button><br/>
+      <button class='btn btn-danger' onclick="getPageInfo();">getPageInfo</button>
 </body>
 </html>

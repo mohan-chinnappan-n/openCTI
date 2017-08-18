@@ -213,7 +213,7 @@ Methods:
 
 
 <!-- 
-    callcenter:
+    callCenter:
 
    definition for a single call center phone system 
    At least one <CallCenter> element must be included in every call center definition file
@@ -269,7 +269,7 @@ Methods:
 				
        -->
             
-    <item sortOrder="2" name="reqAdapterUrl" label="CTI Adapter URL">https://domain:port/softphone</item>
+    <item sortOrder="2" name="reqAdapterUrl" label="CTI Adapter URL">https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html</item>
     <item sortOrder="3" name="reqUseApi" label="Use CTI API">true</item>
     <item sortOrder="4" name="reqSoftphoneHeight" label="Softphone Height">300</item>
     <item sortOrder="5" name="reqSoftphoneWidth" label="Softphone Width">500</item>
@@ -393,23 +393,42 @@ sforce.opencti.disableClickToDial({callback: callback});
 [Link](https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html)
 
 ```html
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BlueConnect Softphone</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+
+
+
       <!-- Imports Open CTI JavaScript library. Point to a valid Salesforce domain. -->
-      <script src="https://domain:port/support/api/40.0/interaction.js"></script>
+      <script src="https://mohansun-lx1-dev-ed.my.salesforce.com/support/api/40.0/interaction.js"></script>
       <script type="text/javascript">
              // Callback of API method: isInConsole
              var isInConsoleCallback = function (response) {
                   // Returns true if method is executed in Salesforce console, false otherwise.
+                  console.log('response: ' + response);
                   if (response.result) {
-                      alert('Softphone is in Salesforce console.');
-                  } 
+                      var msg = 'Softphone is in Salesforce console.'
+                      alert(msg);
+                      console.log(msg);
+                  }
                   else {
                       alert('Softphone is not in Salesforce console.');
                   }
               };
               // Invokes API method: isInConsole
               function isInConsole() {
+                        console.log('in:isInConsole');
                        sforce.interaction.isInConsole(isInConsoleCallback);
               }
               // Callback of API method: getCallCenterSettings
@@ -417,7 +436,7 @@ sforce.opencti.disableClickToDial({callback: callback});
                      // Result returns call center settings as a JSON string.
                      if (response.result) {
                             alert(response.result);
-                     } 
+                     }
                      else {
                             alert('Error retrieving call center settings ' + response.error);
                      }
@@ -431,7 +450,7 @@ sforce.opencti.disableClickToDial({callback: callback});
                        // Returns true if SoftPhone height was set successfully, false otherwise.
                       if (response.result) {
                           alert('Setting softphone height to 300px was successful.');
-                      } 
+                      }
                       else {
                          alert('Setting softphone height failed.');
                      }
@@ -444,7 +463,7 @@ sforce.opencti.disableClickToDial({callback: callback});
                var getPageInfoCallback = function (response) {
                       if (response.result) {
                              alert(response.result);
-                      } 
+                      }
                       else {
                              alert('Error occured while trying to get page info: ' + response.error);
                       }
@@ -454,14 +473,28 @@ sforce.opencti.disableClickToDial({callback: callback});
                        sforce.interaction.getPageInfo(getPageInfoCallback);
                }
       </script>
+<style>
+    .box {
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 3px 3px 3px #888888;
+        width:200px;
+    }
+</style>
+
 </head>
 <body>
-      <button onclick="isInConsole();">isInConsole</button><br/>
-      <button onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
-      <button onclick="setSoftphoneHeight();">setSoftphoneHeight(300)</button><br/>
-      <button onclick="getPageInfo();">getPageInfo</button>
+  <div class='container box'>
+      <h5>BlueConnect SoftPhone</h5>
+      <button class='btn btn-primary' onclick="isInConsole();">isInConsole</button><br/>
+      <button class='btn btn-info' onclick="getCallCenterSettings();">getCallCenterSettings</button><br/>
+      
+      <button class='btn btn-warning' onclick="setSoftphoneHeight();">setSoftphoneHeight(400)</button><br/>
+      <button class='btn btn-danger' onclick="getPageInfo();">getPageInfo</button>
 </body>
 </html>
+
+
 ```
  
 #### LX
@@ -559,6 +592,11 @@ sforce.opencti.disableClickToDial({callback: callback});
 
 
 Ref: [about window.postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) 
+
+
+### Demo: Let us set up the call center and softphone
+
+![callCenter setup demo](./img/opencti-call-center-def.gif)
 
 
 #### Open CTI Lightning Demo Adapter
