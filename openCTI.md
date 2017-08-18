@@ -8,7 +8,12 @@
 ![callCenter setup demo](./img/opencti-call-center-def.gif)
 
 
+
+
 ### Details
+
+![callCenter screen](./img/opencti-softphone-1.png)
+
 
 Ref:
 
