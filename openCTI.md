@@ -7,6 +7,11 @@ This document is for the Computer Telephony Providers planning use Open CTI to i
 
 ### Demo: Let us setup the call center and softphone
 
+CTI Adapter URL used in this demo : [CTI Adapter URL](https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html)
+![BlueConnect Softphone - Open CTI Adapter](./img/cti-adapter-page.png)
+
+**Demo**
+
 ![callCenter setup demo](./img/opencti-call-center-def.gif)
 
 
