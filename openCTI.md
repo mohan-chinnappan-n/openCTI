@@ -193,107 +193,83 @@ Methods:
 
 - If you build a custom softphone with Open CTI, you must write a call center definition file to support it. 
 
+
+
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<CallCenter xmlns="http://soap.sforce.com/2006/04/metadata">
-    <adapterUrl>/apex/demoAdapterPage</adapterUrl>
-    <customSettings>{&quot;reqTimeout&quot;:&quot;10000&quot;,&quot;reqStandbyUrl&quot;:&quot;/apex/demoAdapterPage2&quot;,&quot;reqSoftphoneHeight&quot;:&quot;550&quot;,&quot;reqSoftphoneWidth&quot;:&quot;400&quot;,&quot;reqUseApi&quot;:&quot;true&quot;,&quot;reqSalesforceCompatibilityMode&quot;:&quot;Classic_and_Lightning&quot;}</customSettings>
-    <displayName>Demo Call Center Adapter</displayName>
-    <displayNameLabel>Display Name</displayNameLabel>
-    <internalNameLabel>InternalName</internalNameLabel>
-    <sections>
-        <items>
-            <label>CTI Adapter URL</label>
-            <name>reqAdapterUrl</name>
-            <value>/apex/demoAdapterPage</value>
-        </items>
-        <items>
-            <label>CTI Adapter URL2</label>
-            <name>reqStandbyUrl</name>
-            <value>/apex/demoAdapterPage2</value>
-        </items>
-        <items>
-            <label>Timeout</label>
-            <name>reqTimeout</name>
-            <value>10000</value>
-        </items>
-        <items>
-            <label>Use CTI API</label>
-            <name>reqUseApi</name>
-            <value>true</value>
-        </items>
-        <items>
-            <label>Softphone Height</label>
-            <name>reqSoftphoneHeight</name>
-            <value>550</value>
-        </items>
-        <items>
-            <label>Softphone Width</label>
-            <name>reqSoftphoneWidth</name>
-            <value>400</value>
-        </items>
-        <items>
-            <label>Salesforce Compatibility Mode</label>
-            <name>reqSalesforceCompatibilityMode</name>
-            <value>Classic_and_Lightning</value>
-        </items>
-        <label>General Information</label>
-        <name>reqGeneralInfo</name>
-    </sections>
-    <sections>
-        <items>
-            <label>Outside Prefix</label>
-            <name>reqOutsidePrefix</name>
-            <value>9</value>
-        </items>
-        <items>
-            <label>Long Distance Prefix</label>
-            <name>reqLongDistPrefix</name>
-            <value>1</value>
-        </items>
-        <items>
-            <label>International Prefix</label>
-            <name>reqInternationalPrefix</name>
-            <value>01</value>
-        </items>
-        <label>Dialing Options</label>
-        <name>reqDialingOptions</name>
-    </sections>
-    <sections>
-        <items>
-            <label>Simulated Incoming Phone Number</label>
-            <name>reqIncomingNumber</name>
-            <value>(415) 555-1212</value>
-        </items>
-        <items>
-            <label>CTI Provider</label>
-            <name>reqProvider</name>
-            <value>DummyProvider</value>
-        </items>
-        <items>
-            <label>Provider Account</label>
-            <name>reqProviderAccount</name>
-            <value>AXXXXXXXXXXXXXXXXX</value>
-        </items>
-        <items>
-            <label>Provider Auth Token</label>
-            <name>reqProviderAuthToken</name>
-            <value>YYYYYYYYYYYYYYYYYY</value>
-        </items>
-        <items>
-            <label>Provider Caller Number</label>
-            <name>reqProviderCallerNumber</name>
-            <value>415555555</value>
-        </items>
-        <label>Phone Demo Settings</label>
-        <name>reqPhoneDemoSettings</name>
-    </sections>
-</CallCenter>
+
+
+
+<!-- 
+    callcenter:
+
+   definition for a single call center phone system 
+   At least one <CallCenter> element must be included in every call center definition file
+
+-->
+
+
+
+<callCenter>
+
+ <!--
+     section:
+     
+        Represents a grouping of related data fields:
+       such as server information or dialing prefixes. 
+       
+     Consists of one or more <item> elements.
+     When a call center is edited in Salesforce, fields are organized by the section to which they are assigned.
+    
+    -->
+
+   <section sortOrder="0" name="reqGeneralInfo" label="General Information">
+   
+     <!--
+     item:
+     single field in a call center definition, such as the IP address of a primary server or the dialing prefix for international calls
+     
+      -->
+    
+      <!--
+             label: The name of the item when viewed in Salesforce
+             
+             name: The internal name of the item as defined in the Salesforce database.
+             if the name starts with 'req' it is a required item
+            
+      -->
+    
+    <item sortOrder="0" name="reqInternalName" label="InternalName">DemoAdapter</item>
+    <item sortOrder="1" name="reqDisplayName" label="Display Name">Demo Call Center Adapter</item>
+    
+     <!--
+            reqAdapterUrl:
+            
+	            Represents the location of where the CTI adapter or softphone is hosted. 				For example:
+					http://localhost:11000
+				
+				Relative URLs are allowed for Visualforce pages. For example:
+				: /apex/softphone
+				
+				If you add Force.com Canvas applications to Open CTI, those apps can trump reqAdapterUrl when specified.
+				
+				To implement in a Lightning Experience org, use https in your URL.
+				
+       -->
+            
+    <item sortOrder="2" name="reqAdapterUrl" label="CTI Adapter URL">https://domain:port/softphone</item>
+    <item sortOrder="3" name="reqUseApi" label="Use CTI API">true</item>
+    <item sortOrder="4" name="reqSoftphoneHeight" label="Softphone Height">300</item>
+    <item sortOrder="5" name="reqSoftphoneWidth" label="Softphone Width">500</item>
+    <item sortOrder="6" name="reqSalesforceCompatabilityMode" label=" Salesforce Compatibility Mode">Classic</item>
+   </section>
+   <section sortOrder="1" name="reqDialingOptions" label="Dialing Options">
+    <item sortOrder="0" name="reqOutsidePrefix" label="Outside Prefix">9</item>
+    <item sortOrder="1" name="reqLongDistPrefix" label="Long Distance Prefix">1</item>
+    <item sortOrder="2" name="reqInternationalPrefix" label="International Prefix">01</item>
+   </section>
+</callCenter>
 
 ```
-
-
-
 
 
 
