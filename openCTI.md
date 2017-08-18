@@ -389,6 +389,9 @@ sforce.opencti.disableClickToDial({callback: callback});
 ### Sample HTML Page using Open CTI
 
 #### Classic
+
+[Link](https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html)
+
 ```html
 <html>
 <head>
