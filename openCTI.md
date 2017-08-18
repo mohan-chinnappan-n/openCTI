@@ -194,6 +194,7 @@ Methods:
 - If you build a custom softphone with Open CTI, you must write a call center definition file to support it. 
 
 
+#### Sample Call Center Definition file for Classic
 
 ```xml
 
@@ -272,8 +273,27 @@ Methods:
 ```
 
 
+#### Sample Call Center Definition file for LX
 
+```xml
+<callCenter>
+   <section sortOrder="0" name="reqGeneralInfo" label="General Information">
+    <item sortOrder="0" name="reqInternalName" label="InternalName">OpenCTI</item>
+    <item sortOrder="1" name="reqDisplayName" label="Display Name">OpenCTI</item>
+    <item sortOrder="2" name="reqAdapterUrl" label="CTI Adapter URL">https://domain:port/softphone</item>
+    <item sortOrder="3" name="reqUseApi" label="Use CTI API">true</item>
+    <item sortOrder="4" name="reqSoftphoneHeight" label="Softphone Height">300</item>
+    <item sortOrder="5" name="reqSoftphoneWidth" label="Softphone Width">500</item>
+    <item sortOrder="6" name="reqSalesforceCompatibilityMode" label="Salesforce Compatibility Mode">Lightning</item>
+   </section>
+   <section sortOrder="1" name="reqDialingOptions" label="Dialing Options">
+    <item sortOrder="0" name="reqOutsidePrefix" label="Outside Prefix">9</item>
+    <item sortOrder="1" name="reqLongDistPrefix" label="Long Distance Prefix">1</item>
+    <item sortOrder="2" name="reqInternationalPrefix" label="International Prefix">01</item>
+   </section>
+</callCenter>
 
+```
 
 
 #### Open CTI Lightning Demo Adapter
