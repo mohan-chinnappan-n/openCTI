@@ -410,6 +410,9 @@ The MessageEvent has the type message, a data property which is set to the value
 **window.postMessage**
 ![window.postMessage](./img/window_postMessage.png)
 
+**window.postMessage in openCTI - interaction.js
+![openCTI window.postMessage](./img/openCTI-window-postMessage.png)
+
 **Ref**
 1. [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage)
 2. [Cross-Domain Messaging With postMessage](http://blog.teamtreehouse.com/cross-domain-messaging-with-postmessage)
