@@ -405,7 +405,10 @@ The MessageEvent has the type message, a data property which is set to the value
 
 #### Demo of window.postMessage()
 
-Coming soon....
+![demo of window.postMessage](./img/opencti-window_postMessage.gif)
+
+**window.postMessage**
+![window.postMessage](./img/window_postMessage.png)
 
 
 
