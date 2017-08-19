@@ -408,9 +408,12 @@ The MessageEvent has the type message, a data property which is set to the value
 ![demo of window.postMessage](./img/opencti-window_postMessage.gif)
 
 **window.postMessage**
+
 ![window.postMessage](./img/window_postMessage.png)
 
-**window.postMessage in openCTI - interaction.js
+
+**window.postMessage in openCTI - interaction.js**
+
 ![openCTI window.postMessage](./img/openCTI-window-postMessage.png)
 
 **Ref**
