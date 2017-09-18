@@ -90,7 +90,7 @@ For Salesforce Compatibility Mode, choose Classic for the Salesforce Classic and
 
 Your Amazon admin can provide this url. It is of the format https://<instance>.awapps.com/connect/cpp
 
-For Amazon Connect CCP URL, type the CCP URL for your instance (for example, https://instance.awsapps.com/connect/ccp).
+For Amazon Connect CCP URL, type the CCP URL for your instance (for example, https://mysinstance.awsapps.com/connect/ccp).
 
 
 For Phone Number Formatting, Country, specify the appropriate 2-digit ISO country code.
@@ -109,7 +109,8 @@ Documentation Url for th Application intergration is: http://docs.aws.amazon.com
 
 [Application Integration](http://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instance.html#app-integration)
 
-```https://amazonconnect.instance.visual.force.com```
+```https://amazonconnect.<instance>.visual.force.com```
+
 ------
 
 #### How to verify the URL is whitelisted?
