@@ -764,6 +764,12 @@ This CTI demo adapter package lets you test drive Open CTI for Lightning Experie
 
 ----
 
+#### Amazon connect notes:
+
+[Amazon Connect Notes](./ac.md)
+
+----- 
+
 ### IVR, ACD, Auto-Attendant, Voicemail. What’s The Difference?
 
 

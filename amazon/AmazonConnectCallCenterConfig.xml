@@ -1,0 +1,46 @@
+<!--
+Please import this file into your call center config. 
+-->
+
+<callCenter>
+    <section sortOrder="0" name="reqGeneralInfo" label="Amazon Connect Salesforce CCP Adapter">
+        <item sortOrder="0" name="reqInternalName"
+              label="Internal Name">ACSFCCPAdapter</item>
+        <item sortOrder="1" name="reqDisplayName"
+              label="Display Name">Amazon Connect CCP Adapter</item>
+        <item sortOrder="2" name="reqDescription"
+              label="Description">Amazon Connect Call Center</item>
+        <item sortOrder="3" name="reqAdapterUrl"
+              label="CTI Adapter URL">/apex/amazonconnect__ACSFCCP_Lightning</item>
+        <item sortOrder="4" name="reqUseApi"
+              label="Use CTI API">true</item>
+        <item sortOrder="5" name="reqSoftphoneHeight"
+              label="Softphone Height">400</item>
+        <item sortOrder="6" name="reqSoftphoneWidth"
+              label="Softphone Width">250</item>
+        <item sortOrder="7" name="reqSalesforceCompatibilityMode"
+              label=" Salesforce Compatibility Mode">Lightning</item>
+    </section>
+    <section sortOrder="1" name="reqConnectSFCCPOptions" label="Amazon Connect Information">
+        <item sortOrder="0" name="reqConnectURL"
+              label="Amazon Connect CCP URL">https://yourinstancename.awsapps.com/connect/ccp</item>
+        <item sortOrder="1" name="reqConnectCW"
+              label="Console Phone Width">260</item>
+        <item sortOrder="2" name="reqConnectCH"
+              label="Console Phone Height">465</item>
+        <item sortOrder="3" name="reqConnectCLCW"
+              label="Classic Phone Width">195</item>
+        <item sortOrder="4" name="reqConnectCLCH"
+              label="Classic Phone Height">460</item>
+        <item sortOrder="5" name="reqConnectLW"
+              label="Lightning Container Width">260</item>
+        <item sortOrder="6" name="reqConnectLH"
+              label="Lightning Container Height">465</item>
+        <item sortOrder="7" name="reqConnectLCW"
+              label="Lightning Phone Width">266</item>
+        <item sortOrder="8" name="reqConnectLCH"
+              label="Lightning Phone Height">512</item>
+        <item sortOrder="9" name="reqConnectPhoneFormat"
+              label="Phone Number Formatting">{"OPF":"0","NPF":"1","Country":"US","NF":"International_plaintext","TNF":"(555) 123-4567"}</item>
+    </section>
+</callCenter>
