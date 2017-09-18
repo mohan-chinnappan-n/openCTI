@@ -1,10 +1,10 @@
 ### Amazon connect notes
 
-## References:
+#### References:
 
-[Amazon Connect and Salesforce Integration ](http://docs.aws.amazon.com/connect/latest/adminguide/salesforce-integration.html)
+1. [Amazon Connect and Salesforce Integration ](http://docs.aws.amazon.com/connect/latest/adminguide/salesforce-integration.html)
 
-[Enabling Amazon Connect with Salesforce Service Cloud and Sales Cloud](https://aws.amazon.com/blogs/apn/enabling-amazon-connect-with-salesforce-service-and-sales-cloud/)
+2. [Enabling Amazon Connect with Salesforce Service Cloud and Sales Cloud](https://aws.amazon.com/blogs/apn/enabling-amazon-connect-with-salesforce-service-and-sales-cloud/)
 
 
 The Amazon Connect CTI Adapter provides a WebRTC browser-based Contact Control Panel (CCP) within Salesforce. This integration enables your agents to leverage both inbound caller ID screen pop and outbound click to call/transfer/conferencing.
@@ -105,7 +105,7 @@ To provide users with access to the CCP, choose **Manage Call Center Users** add
 
 Whitelist your Salesforce Visualforce domain URL using the directions in Application Integration. This URL usually has the following format:
 
-Url for th Application intergration is: http://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instance.html#app-integration
+Documentation Url for th Application intergration is: http://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instance.html#app-integration
 
 [Application Integration](http://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instance.html#app-integration)
 
