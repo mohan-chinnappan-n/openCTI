@@ -11,8 +11,9 @@ The Amazon Connect CTI Adapter provides a WebRTC browser-based Contact Control P
 
 We recommend that you initially install the package into your Salesforce sandbox. After the package is installed, you can configure your Salesforce Call Center configuration within Salesforce. This configuration is a XML file that you import into your call center. It provides all the details required to enable the CTI.
 
-The next step is to whitelist your Salesforce Visualforce domain within your Amazon Connect Application integration. This allows cross-domain access to your Amazon Connect instance.
-
+The next step is to :
+**whitelist your Salesforce Visualforce domain within your Amazon Connect Application integration**. This allows cross-domain access to your Amazon Connect instance.
+ 
 #### Prerequisites
 
 1. Salesforce Classic, Salesforce Console, or Lightning Experience
@@ -103,7 +104,12 @@ To provide users with access to the CCP, choose **Manage Call Center Users** add
 
 #### Important 
 
-Whitelist your Salesforce Visualforce domain URL using the directions in Application Integration. This URL usually has the following format:
+
+**whitelist your Salesforce Visualforce domain within your Amazon Connect Application integration**
+
+![Whitelisting](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect5.png)
+
+Whitelist your Salesforce Visualforce domain URL using the directions in **Amazon Connect Application Integration**. This URL usually has the following format:
 
 Documentation Url for th Application intergration is: http://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instance.html#app-integration
 
@@ -111,11 +117,16 @@ Documentation Url for th Application intergration is: http://docs.aws.amazon.com
 
 ```https://amazonconnect.<instance>.visual.force.com```
 
+instance : your Amazon Connect instance name.
+
 ------
 
 #### How to verify the URL is whitelisted?
 
 To verify the URL, open the Visualforce page in setup.
+
+![Verfiy whitelisting](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect6.png)
+
 
 -----
 
