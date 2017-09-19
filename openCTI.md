@@ -5,6 +5,11 @@
 
 This document is for the Computer Telephony Providers planning to use Open CTI to integrate with Salesforce
 
+Note: 
+
+If you like to see how to setup Amazon Connect using OpenCTI click [here](./ac.md)
+
+
 ### Demo: Let us setup the call center and softphone
 
 CTI Adapter URL used in this demo : [CTI Adapter URL](https://mohan-sundar-bp.herokuapp.com/opencti/softphone.html)
