@@ -1,4 +1,4 @@
-### Amazon connect notes
+### Amazon connect setup notes
 
 #### References:
 
