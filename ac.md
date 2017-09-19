@@ -163,6 +163,8 @@ URL for this :https://YOURINSTANCENAME.awsapps.com/connect/login
 
 Open another tab and log into your Salesforce:
 
+You should see the integrated CCP in the side panel (Salesforce Classic) or the phone toolbar (Salesforce Classic and Lightning Experience).
+
 You will see similar to this:
 
 ![Setup complete](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect7.png)
@@ -205,6 +207,5 @@ You can also configure the screen pop behavior in the Softphone layouts under yo
 
 
 
-Launch Salesforce. 
 
-You should see the integrated CCP in the side panel (Salesforce Classic) or the phone toolbar (Salesforce Classic and Lightning Experience).
+
