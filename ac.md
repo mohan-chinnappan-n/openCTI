@@ -6,6 +6,7 @@
 
 2. [Enabling Amazon Connect with Salesforce Service Cloud and Sales Cloud](https://aws.amazon.com/blogs/apn/enabling-amazon-connect-with-salesforce-service-and-sales-cloud/)
 
+3. [Salesforce Announces Service Cloud Einstein and Amazon Connect Integration](https://www.salesforce.com/company/news-press/press-releases/2017/03/170328-3.jsp)
 
 The Amazon Connect CTI Adapter provides a WebRTC browser-based Contact Control Panel (CCP) within Salesforce. This integration enables your agents to leverage both inbound caller ID screen pop and outbound click to call/transfer/conferencing.
 
@@ -24,7 +25,17 @@ The next step is to :
 In your Salesforce sandbox, install the following managed package: 
 [Amazon Connect CTI Adapter](https://appexchange.salesforce.com/listingDetail?listingId=a0N3A00000EJH4yUAH)
 
+![AppExchange app](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect2.png)
+
+
+After the package has been installed, the next step is to set up your Salesforce call center configuration. This configuration is a XML file you import into your call center, which provides all the details required to enable the Amazon Connect CTI Adapter. First, download the call center XML configuration and import it into your Lightning call center configuration:
+
+
+
 Download the AmazonConnectCallCenterConfig.xml file and import it into your Salesforce call center configuration.
+
+![callcenter setup](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect3.png)
+
 
 ```xml
 <!-- Please import this file into your call center config.  -->
@@ -78,6 +89,11 @@ Download the AmazonConnectCallCenterConfig.xml file and import it into your Sale
 ------
 Edit the call center configuration as follows:
 
+![editing setup](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect4.png)
+
+
+
+
 For CTI Adapter URL, type the one of the following, based on your Salesforce interface:
 
 /apex/amazonconnect__ACSFCCP_Classic
@@ -86,6 +102,16 @@ For CTI Adapter URL, type the one of the following, based on your Salesforce int
 
 
 For Salesforce Compatibility Mode, choose Classic for the Salesforce Classic and Salesforce Console or Lightning for Lightning Experience.
+
+
+Note:
+
+1. The suffix for the Amazon Connect CTI Adapter URL is set to Lightning. If you were configuring the Amazon Connect CTI Adapter for Classic or Console, those suffixes would be used instead.
+2. Salesforce Compatibility Mode is set for Lightning. This would be set to Classic if you were configuring for Classic or Console.
+3. The Amazon Connect CCP URL is set to your Amazon Connect instance name. (replace YOURINSTANCENAME with your Amazon Connect instance name).
+4. If you are using this in another country (i.e. Great Britain), set the appropriate two digit ISO country code.
+5. Provide access to users (i.e. admins, supervisors, agents) who will be using the CCP.
+
 
 #### Amazon Connect CCP URL
 
@@ -132,6 +158,52 @@ To verify the URL, open the Visualforce page in setup.
 
 
 Log in to your Amazon Connect instance.
+
+URL for this :https://YOURINSTANCENAME.awsapps.com/connect/login
+
+Open another tab and log into your Salesforce:
+
+You will see similar to this:
+
+![Setup complete](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect7.png)
+
+**Click to Dial**
+
+You should notice that all numbers have a phone icon next to them in Salesforce pages with phone number fields.
+
+![Click to dial](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect8.png)
+
+It will make an outbound call via the Amazon Connect CCP and connect to the customer when they answer the call.
+
+
+![outbound call](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect9.png)
+
+**AfterTheCall**
+
+![after the call](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect10.png)
+
+
+Once you complete the call, the Amazon Connect CCP will go into AfterCallWork status where the agent can perform any follow up activities (e.g. logging a call). After these activities are completed, they can make themselves available to take more calls.
+
+
+
+**Inbound calls**
+
+If the agent is in an available state and they receive a call, the inbound call will screen pop the Amazon Connect CCP and any matching records for the caller ID.
+
+![inbound calls](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect11.png)
+
+
+**Screen pop behavior setup**
+
+You can also configure the screen pop behavior in the Softphone layouts under your Salesforce call center configuration.
+
+
+![Screenpop](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect12.png)
+
+
+
+
 
 Launch Salesforce. 
 
