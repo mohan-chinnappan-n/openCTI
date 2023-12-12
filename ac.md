@@ -203,6 +203,8 @@ You can also configure the screen pop behavior in the Softphone layouts under yo
 
 ![Screenpop](https://d2908q01vomqb2.cloudfront.net/77de68daecd823babbb58edb1c8e14d7106e83bb/2017/09/06/Connect12.png)
 
+## Videos
+[Salesforce and Amazon Connect](https://pages.awscloud.com/apn-tv-this-is-my-architecture-ep-050.html)
 
 
 
